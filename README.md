@@ -1,1 +1,1 @@
-# guiz-test-task
+# quiz-test-task
