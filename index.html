@@ -1,0 +1,177 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <script
+      defer
+      src="https://kit.fontawesome.com/54b35a67e0.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <!-- This "spinner-square" block of code was imported from https://codepen.io/CodeArtisT75/pen/QWLQwYL -->
+    <div class="spinner-container hidden">
+      <div class="spinner-square">
+        <div class="square-1 square"></div>
+        <div class="square-2 square"></div>
+        <div class="square-3 square"></div>
+      </div>
+    </div>
+
+    <div class="app-container hidden">
+      <nav class="nav-container">
+        <ul>
+          <li><a href="#" class="nav-item to-home current-page">HOME</a></li>
+          <li><a href="#" class="nav-item to-stats">STATS</a></li>
+        </ul>
+      </nav>
+
+      <main class="main-container">
+        <div class="page-container home-container hidden">
+          <div class="home" id="home">
+            <button class="lucky-btn">I'm lucky 🍀</button>
+            <div class="quiz-list-container">
+              <!-- <div class="quiz-item" data-index="${quizIndex}">
+                <h2>${category}</h2>
+                <p>Questions: ${questions}</p>
+                <button class="play-btn mix">Play</button>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="page-container play-container hidden">
+          <div class="play" id="play">
+            <div class="timer-container">
+              <div class="timer">00:00</div>
+            </div>
+            <div class="buttons">
+              <i
+                class="fa fa-window-close close-btn active-btn"
+                aria-hidden="true"
+              ></i>
+              <i
+                class="fa fa-angle-left slider-btn btn-left active-btn"
+                aria-hidden="true"
+              ></i>
+              <i
+                class="fa fa-angle-right slider-btn btn-right active-btn"
+                aria-hidden="true"
+              ></i>
+              <i
+                class="fa fa-flag-checkered slider-btn btn-right btn-finish active-btn"
+                aria-hidden="true"
+                style="display: none"
+              ></i>
+            </div>
+            <div class="slides-container">
+              <!-- <div class="slide current-quiz-wrapper ${
+                questionNum > 1 ? "hidden" : ""
+              }" data-question-index="${i}">
+                <div class="quiz-info-container flex-wrapper">
+                  <p class="quiz-name">${category}</p>
+                  <span class="questions-counter">${questionNum}/${quiz.length}</span>
+                </div>
+      
+                <div class="question-container"></div>
+                  <div class="flex-wrapper">
+                    <h2 class="question-num">Question #${questionNum}:</h2>
+                    <span class="question-difficulty ${difficulty}">${difficulty} <span class=points>(${points} points)</span></span>
+                  </div>
+                  <h3 class="question-content">${question}</h3>
+                  <ul class="answer-options">${answersStr}</ul>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="page-container finish-container hidden">
+          <div class="finish" id="finish">
+            <i
+              class="fa fa-window-close close-btn active-btn"
+              aria-hidden="true"
+            ></i>
+            <div class="results-container">
+              <!-- <h2>Your Results:</h2>
+              <ul class="results-list">
+              <li class="result-item flex-wrapper">Time used: <span class="result">${timeFormatted}</span></li>
+              <li class="result-item flex-wrapper">Score: <span class="result">${score} %</span></li>
+                <li class="result-item flex-wrapper">Points: <span class="result">${points} / ${maxPoints}</span></li>
+                <li class="result-item flex-wrapper">Correct answers: <span class="result">${correctAnswers} / ${questions}</span></li>
+                <li  class="result-item">
+                  Correct by difficutly:
+                  <table>
+                    <tr class="difficulty-row">
+                      <td class="easy">easy</td>
+                      <td class="medium">medium</td>
+                      <td class="hard">hard</td>
+                    </tr>
+                    <tr class="results-row">
+                      <td class="easy">${easy.collected} / ${easy.total}</td>
+                      <td class="medium">${medium.collected} / ${medium.total}</td>
+                      <td class="hard">${hard.collected} / ${hard.total}</td>
+                    </tr>
+                  </table>
+                </li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="page-container stats-container hidden">
+          <div class="stats" id="stats">
+            <div class="stats-wrapper">
+              <i
+                class="fa fa-window-close close-btn active-btn "
+                aria-hidden="true"
+              ></i>
+              <!-- <div class="flex-wrapper"> -->
+              <div class="stats-info">
+                <!-- <h2>Your Statistic:</h2>
+
+                  <table class="stats-table">
+                    <tr>
+                      <td>Quizzes played:</td>
+                      <td class="stats-data">${quizzesPlayed}</td>
+                    </tr>
+                    <tr>
+                      <td>Questions answered:</td>
+                      <td class="stats-data">${questionsAnswered}</td>
+                    </tr>
+                    <tr>
+                      <td>Average answering time:</td>
+                      <td class="stats-data">${avgAnswTime}</td>
+                    </tr>
+                  </table> -->
+              </div>
+              <div class="stats-chart">
+                <div class="chart-container">
+                  <canvas id="pie-diagram" class="pie-diagram"></canvas>
+                </div>
+              </div>
+              <!-- </div> -->
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer-container hidden">
+        <p>Test Task for <a href="https://nerdysoft.com/">Nerdysoft</a> &#10084</p>
+      </footer>
+    </div>
+  </body>
+</html>

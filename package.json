@@ -1,0 +1,14 @@
+{
+  "name": "quizzes",
+  "version": "1.0.0",
+  "description": "Quizzes app",
+  "main": "script.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/styles.css -w"
+  },
+  "author": "Solia Marko",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
