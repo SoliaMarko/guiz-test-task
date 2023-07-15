@@ -3,7 +3,7 @@ $color-primary-darker: #010101;
 $color-secondary: #fefefe;
 $color-secondary-darker: #fefefe93;
 $color-secondary-lighter: #ffffff;
-$color-tertiary: #141414;
+$color-tertiary: #202020;
 $color-highlight-active: #ff2a2a;
 $color-highlight-unactive: #ff2a2a3f;
 $gradient-primary: linear-gradient(45deg, #05ecfd 0%, #fb95be 70%);
@@ -531,6 +531,13 @@ footer {
 }
 
 @media screen and (max-width: 1300px) {
+  .play-container,
+  .finish-container,
+  .stats-container {
+    height: auto;
+    top: 3vh;
+  }
+
   .nav-container {
     position: absolute;
     width: auto;
@@ -541,7 +548,7 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .play-container {
+  .page-container {
     z-index: 11;
   }
 }
@@ -623,6 +630,11 @@ footer {
     }
   }
 
+  .finish-container .finish,
+  .stats-container .stats {
+    width: 90vw;
+  }
+
   .stats-container .stats table {
     min-width: 300px;
     width: 80%;
@@ -669,6 +681,13 @@ footer {
 @media screen and (max-width: 448px) {
   html {
     font-size: 11px;
+  }
+
+  .play-container,
+  .finish-container,
+  .stats-container {
+    height: auto;
+    top: 3vh;
   }
 
   .play-container .play .slider-btn.btn-finish {

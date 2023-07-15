@@ -98,7 +98,7 @@ main {
     grid-template-columns: repeat(5, 1fr);
     margin-bottom: 3.75rem; }
     .home-container .quiz-list-container .quiz-item {
-      background-color: #141414;
+      background-color: #202020;
       border-radius: 5%;
       padding: 2.5rem 1.25rem; }
       .home-container .quiz-list-container .quiz-item * {
@@ -106,7 +106,7 @@ main {
         transition-duration: 0.8s; }
       .home-container .quiz-list-container .quiz-item:hover *, .home-container .quiz-list-container .quiz-item:hover {
         background-color: #ffffff;
-        color: #141414; }
+        color: #202020; }
       .home-container .quiz-list-container .quiz-item h2 {
         min-height: 6rem; }
       .home-container .quiz-list-container .quiz-item h2,
@@ -344,13 +344,18 @@ footer {
     width: 30%; } }
 
 @media screen and (max-width: 1300px) {
+  .play-container,
+  .finish-container,
+  .stats-container {
+    height: auto;
+    top: 3vh; }
   .nav-container {
     position: absolute;
     width: auto;
     border-bottom: none; }
   .home-container .quiz-list-container {
     grid-template-columns: repeat(3, 1fr); }
-  .play-container {
+  .page-container {
     z-index: 11; } }
 
 @media screen and (max-width: 980px) {
@@ -396,6 +401,9 @@ footer {
     width: 60%; }
   .home-container .quiz-list-container {
     grid-template-columns: repeat(1, 1fr); }
+  .finish-container .finish,
+  .stats-container .stats {
+    width: 90vw; }
   .stats-container .stats table {
     min-width: 300px;
     width: 80%; }
@@ -423,6 +431,11 @@ footer {
 @media screen and (max-width: 448px) {
   html {
     font-size: 11px; }
+  .play-container,
+  .finish-container,
+  .stats-container {
+    height: auto;
+    top: 3vh; }
   .play-container .play .slider-btn.btn-finish {
     right: -12vw; }
   .stats-container .stats {
